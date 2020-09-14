@@ -1,0 +1,26 @@
+{
+   "name":"note.md",
+   "version":"0.0.1",
+   "manifest_version":2,
+   "icons":{
+
+   },
+   "description":"Write 'note' with markdown syntax",
+   "permissions":[
+
+   ],
+   "content_scripts":[
+      {
+         "matches":[
+            "https://note.com/notes/new",
+            "https://note.com/notes/*/edit"
+         ],
+         "js":[
+            "main.js"
+         ]
+      }
+   ],
+   "browser_action":{
+      "default_title":"Write 'note' with markdown syntax"
+   }
+}
