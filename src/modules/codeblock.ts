@@ -1,7 +1,7 @@
 import { Converter } from './markdown';
 
-export class Header implements Converter {
-  private static prefix = '# ';
+export class CodeBlock implements Converter {
+  private static prefix = '```';
   private readonly text: string = '';
   private readonly name: string = '';
   private readonly offset: number;
@@ -25,19 +25,21 @@ export class Header implements Converter {
   }
 
   public convert() {
-    const header = this.createHeaderElement();
-    this.element.replaceWith(header);
-    this.setPosition(header);
+    const codeBlock = this.createHeaderElement();
+    this.element.replaceWith(codeBlock);
+    this.setPosition(codeBlock);
   }
 
   private createHeaderElement(): Element {
-    const header = document.createElement('h3');
+    const codeBlock = document.createElement('pre');
+    codeBlock.className = 'p-textNoteCode';
+
     if (this.name !== '') {
-      header.setAttribute('name', this.name);
+      codeBlock.setAttribute('name', this.name);
     }
 
-    header.innerHTML = this.headerText();
-    return header;
+    codeBlock.innerHTML = this.codeBlockHTML();
+    return codeBlock;
   }
 
   private setPosition(element: Element) {
@@ -47,12 +49,13 @@ export class Header implements Converter {
     );
   }
 
-  private headerText() {
-    return this.text.replace(Header.prefix, '');
+  private codeBlockHTML() {
+    const text = this.text.replace(CodeBlock.prefix, '');
+    return `<code class="p-textNoteCode__main">${text}</code>`;
   }
 
   private adjust() {
-    const offset = this.offset - Header.prefix.length;
+    const offset = this.offset - CodeBlock.prefix.length;
     return offset < 0 ? 0 : offset;
   }
 }

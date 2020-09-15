@@ -1,35 +1,35 @@
 {
-   "name":"note.md",
-   "version":"0.0.0",
-   "description":"note with markdown",
-   "repository":{
-      "type":"git",
-      "url":"https://github.com/nasjp/note.md"
+   "name": "note.md",
+   "version": "0.0.0",
+   "description": "note with markdown",
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/nasjp/note.md"
    },
-   "scripts":{
-      "test":"echo no test",
-      "clean":"rimraf dist",
-      "build":"run-s build:*",
-      "build:lint":"eslint --fix 'src/**/*'",
-      "build:compile":"webpack",
-      "build:copy":"cpx -C static/** dist"
+   "scripts": {
+      "test": "echo no test yet",
+      "clean": "rimraf dist",
+      "build": "run-s build:*",
+      "build:lint": "eslint --fix 'src/**/*'",
+      "build:compile": "webpack",
+      "build:copy": "cpx -C static/** dist"
    },
-   "license":"MIT",
-   "devDependencies":{
-      "@types/chrome":"0.0.123",
-      "@typescript-eslint/eslint-plugin":"^4.1.1",
-      "@typescript-eslint/parser":"^4.1.1",
-      "eslint":"^7.9.0",
-      "eslint-config-google":"^0.14.0",
-      "npm-run-all":"^4.1.5",
-      "rimraf":"^3.0.2",
-      "ts-loader":"^8.0.3",
-      "typescript":"^4.0.2",
-      "webpack":"^4.44.1",
-      "webpack-cli":"^3.3.12"
+   "license": "MIT",
+   "devDependencies": {
+      "@types/chrome": "0.0.123",
+      "@typescript-eslint/eslint-plugin": "^4.1.1",
+      "@typescript-eslint/parser": "^4.1.1",
+      "eslint": "^7.9.0",
+      "eslint-config-google": "^0.14.0",
+      "npm-run-all": "^4.1.5",
+      "rimraf": "^3.0.2",
+      "ts-loader": "^8.0.3",
+      "typescript": "^4.0.2",
+      "webpack": "^4.44.1",
+      "webpack-cli": "^3.3.12"
    },
-   "dependencies":{
-      "@deboxsoft/cpx":"^1.5.0",
-      "braces":"^2.3.2"
+   "dependencies": {
+      "@deboxsoft/cpx": "^1.5.0",
+      "braces": "^2.3.2"
    }
 }

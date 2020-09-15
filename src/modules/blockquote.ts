@@ -1,7 +1,7 @@
 import { Converter } from './markdown';
 
-export class Header implements Converter {
-  private static prefix = '# ';
+export class Blockquote implements Converter {
+  private static prefix = '> ';
   private readonly text: string = '';
   private readonly name: string = '';
   private readonly offset: number;
@@ -25,19 +25,19 @@ export class Header implements Converter {
   }
 
   public convert() {
-    const header = this.createHeaderElement();
-    this.element.replaceWith(header);
-    this.setPosition(header);
+    const blockquote = this.createHeaderElement();
+    this.element.replaceWith(blockquote);
+    this.setPosition(blockquote);
   }
 
   private createHeaderElement(): Element {
-    const header = document.createElement('h3');
+    const blockquote = document.createElement('blockquote');
     if (this.name !== '') {
-      header.setAttribute('name', this.name);
+      blockquote.setAttribute('name', this.name);
     }
 
-    header.innerHTML = this.headerText();
-    return header;
+    blockquote.innerHTML = this.blockquoteText();
+    return blockquote;
   }
 
   private setPosition(element: Element) {
@@ -47,12 +47,12 @@ export class Header implements Converter {
     );
   }
 
-  private headerText() {
-    return this.text.replace(Header.prefix, '');
+  private blockquoteText() {
+    return this.text.replace(Blockquote.prefix, '');
   }
 
   private adjust() {
-    const offset = this.offset - Header.prefix.length;
+    const offset = this.offset - Blockquote.prefix.length;
     return offset < 0 ? 0 : offset;
   }
 }

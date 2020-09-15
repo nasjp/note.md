@@ -1,7 +1,7 @@
 import { Converter } from './markdown';
 
-export class Header implements Converter {
-  private static prefix = '# ';
+export class Center implements Converter {
+  private static prefix = '>> ';
   private readonly text: string = '';
   private readonly name: string = '';
   private readonly offset: number;
@@ -25,19 +25,21 @@ export class Header implements Converter {
   }
 
   public convert() {
-    const header = this.createHeaderElement();
-    this.element.replaceWith(header);
-    this.setPosition(header);
+    const center = this.createHeaderElement();
+    this.element.replaceWith(center);
+    this.setPosition(center);
   }
 
   private createHeaderElement(): Element {
-    const header = document.createElement('h3');
+    const center = document.createElement('p');
     if (this.name !== '') {
-      header.setAttribute('name', this.name);
+      center.setAttribute('name', this.name);
     }
 
-    header.innerHTML = this.headerText();
-    return header;
+    center.style.textAlign = 'center';
+
+    center.innerHTML = this.centerText();
+    return center;
   }
 
   private setPosition(element: Element) {
@@ -47,12 +49,12 @@ export class Header implements Converter {
     );
   }
 
-  private headerText() {
-    return this.text.replace(Header.prefix, '');
+  private centerText() {
+    return this.text.replace(Center.prefix, '');
   }
 
   private adjust() {
-    const offset = this.offset - Header.prefix.length;
+    const offset = this.offset - Center.prefix.length;
     return offset < 0 ? 0 : offset;
   }
 }
