@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/nasjp/note.md/workflows/ci/badge.svg)](https://github.com/nasjp/note.md/actions)
+[![Actions Status](https://github.com/nasjp/note.md/workflows/Node.js%20CI/badge.svg)](https://github.com/nasjp/note.md/actions)
 
 # note.md [WIP]
 
